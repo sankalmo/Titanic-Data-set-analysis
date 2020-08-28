@@ -1,1 +1,16 @@
-print("hi")
+
+library(data.table)
+setDT(titanic)
+library(ggplot2)
+str(titanic)
+unique(titanic$Pclass)
+
+#Numerical to Catgorical data
+titanic[,Survived := factor(Survived)]
+titanic[,Pclass := factor(Pclass,ordered=T)]
+titanic[,Sex := factor(Sex)]
+
+#aesthetic function
+# How many people survived , using bar chart since it is a categorical data
+ggplot(titanic ,aes(x=Survived)) + geom_bar()
+# More people died then survived
