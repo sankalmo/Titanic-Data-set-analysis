@@ -1,0 +1,55 @@
+library(data.table)
+setDT(titanic)
+library(ggplot2)
+str(titanic)
+unique(titanic$Pclass)
+
+#Numerical to Catgorical data
+titanic[,Survived := factor(Survived)]
+titanic[,Pclass := factor(Pclass,ordered=T)]
+titanic[,Sex := factor(Sex)]
+
+#aesthetic function
+# How many people survived , using bar chart since it is a categorical data
+ggplot(titanic ,aes(x=Survived)) + geom_bar()
+# More people died then survived
+
+#Better view
+ggplot(titanic ,aes(x=Survived)) + geom_bar()+ theme_bw()+labs(y= "Passenger Count", title = "Titanice
+Survival Rates")
+
+# Taking sex into account
+ggplot(titanic ,aes(x=Sex)) + geom_bar()+ theme_bw()+labs(y= "Passenger Count", title = "Titanice
+Survival Rates")
+#More male survived
+
+# Sex plus Class they travelled in
+ggplot(titanic ,aes(x=Sex,fill = Pclass)) + geom_bar()+ theme_gray()+labs(y= "Passenger Count", title = "Titanice
+Survival Rates")
+
+#Only considering class
+ggplot(titanic , aes(x=Pclass , fill=Survived) ) + geom_bar() + theme_bw() + labs(y= "Passenger Count", title = "Titanice Survival Rates")
+
+
+#Subdividing class and Sex using facet wrap
+ggplot(titanic, aes(x=Sex, fill=Survived)) + geom_bar () + theme_bw() + facet_wrap(~ Pclass) + labs(y= " Passenger Count", title = "Titanice Survival Rates" ) 
+
+#Survival over different age groups
+ggplot(titanic , aes(x=Age)) + geom_histogram(binwidth = 5,fill = 'yellow',color = 'black') + theme_bw() + labs(y= "Passenger Count",x=" Age (5)", title = "Titanice Survival Rates")
+
+
+#Finding the average number at different ages
+ggplot(titanic, aes(x=Age, fill=Survived)) + geom_histogram(binwidth = 5) + theme_bw() + labs(y= " Passenger Count",x="Age (5)", title = "Titanice Survival Rates")
+
+#x axis categorical
+#y axis numerical
+# why box is between 20 and 40
+
+#Using boxplot and facet wrap calculating sex and age survival rates
+ggplot(titanic , aes(x=Survived , y=Age)) + geom_boxplot () + facet_wrap(Sex~Pclass) +theme_bw() + labs(y= "Age",x="Survived ", title = "Titanice Survival Rates")
+
+#Density graph for better visualisation
+ggplot(titanic, aes(x=Age, fill=Survived)) + geom_density(alpha = 0.5) + theme_bw() + facet_wrap(Sex ~ Pclass) + labs(y= "Passenger Count",x="Age (5)", title = "Titanice Survival Rates")
+
+#Historicam with sex, age, class and facet wrap
+ggplot(titanic, aes(x=Age, fill=Survived)) + geom_histogram(binwidth = 5,color = 'black' ) + facet_wrap(Sex ~ Pclass) +theme_bw() + labs(y= 'Age', title = "Titanice Survival Rates")
