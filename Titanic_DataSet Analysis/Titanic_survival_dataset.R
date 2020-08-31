@@ -28,3 +28,12 @@ Survival Rates")
 # Sex plus Class they travelled in
 ggplot(titanic ,aes(x=Sex,fill = Pclass)) + geom_bar()+ theme_gray()+labs(y= "Passenger Count", title = "Titanic
 Survival Rates")
+
+
+#Only considering class
+ggplot(titanic , aes(x=Pclass , fill=Survived) ) + geom_bar() + theme_bw() + labs(y= "Passenger Count", title = "Titanic Survival Rates")
+
+
+#Subdividing class and Sex using facet wrap
+ggplot(titanic, aes(x=Sex, fill=Survived)) + geom_bar () + theme_bw() + facet_wrap(~ Pclass) + labs(y= " Passenger Count", title = "Titanic Survival Rates" ) 
+
