@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3370583251",
+    "hash" : "0",
     "id" : "358B1A04",
-    "lastKnownWriteTime" : 1598664911,
-    "last_content_update" : 1598664911485,
+    "lastKnownWriteTime" : 1598915777,
+    "last_content_update" : 1598915777763,
     "path" : "~/Desktop/Titanic Data set analysis/Titanic_DataSet Analysis/Titanic_survival_dataset.R",
     "project_path" : "Titanic_survival_dataset.R",
     "properties" : {
-        "cursorPosition" : "30,0",
-        "scrollLine" : "6"
+        "cursorPosition" : "38,0",
+        "scrollLine" : "15"
     },
     "read_only" : false,
     "read_only_alternatives" : [
