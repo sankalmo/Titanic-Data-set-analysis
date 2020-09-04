@@ -37,3 +37,17 @@ ggplot(titanic , aes(x=Pclass , fill=Survived) ) + geom_bar() + theme_bw() + lab
 #Subdividing class and Sex using facet wrap
 ggplot(titanic, aes(x=Sex, fill=Survived)) + geom_bar () + theme_bw() + facet_wrap(~ Pclass) + labs(y= " Passenger Count", title = "Titanic Survival Rates" ) 
 
+#Survival over different age groups
+ggplot(titanic , aes(x=Age)) + geom_histogram(binwidth = 5,fill = 'yellow',color = 'black') + theme_bw() + labs(y= "Passenger Count",x=" Age (5)", title = "Titanic Survival Rates")
+
+
+#Finding the average number at different ages
+ggplot(titanic, aes(x=Age, fill=Survived)) + geom_histogram(binwidth = 5) + theme_bw() + labs(y= " Passenger Count",x="Age (5)", title = "Titanic Survival Rates")
+
+#x axis categorical
+#y axis numerical
+#y box is between 20 and 40
+
+#Using boxplot and facet wrap calculating sex and age survival rates
+ggplot(titanic , aes(x=Survived , y=Age)) + geom_boxplot () + facet_wrap(Sex~Pclass) +theme_bw() + labs(y= "Age",x="Survived ", title = "Titanic Survival Rates")
+
