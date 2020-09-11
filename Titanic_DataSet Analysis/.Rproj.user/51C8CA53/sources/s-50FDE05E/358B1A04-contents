@@ -51,3 +51,10 @@ ggplot(titanic, aes(x=Age, fill=Survived)) + geom_histogram(binwidth = 5) + them
 #Using boxplot and facet wrap calculating sex and age survival rates
 ggplot(titanic , aes(x=Survived , y=Age)) + geom_boxplot () + facet_wrap(Sex~Pclass) +theme_bw() + labs(y= "Age",x="Survived ", title = "Titanic Survival Rates")
 
+
+#Density graph for better visualisation
+ggplot(titanic, aes(x=Age, fill=Survived)) + geom_density(alpha = 0.5) + theme_bw() + facet_wrap(Sex ~ Pclass) + labs(y= "Passenger Count",x="Age (5)", title = "Titanic Survival Rates")
+
+#Historicam with sex, age, class and facet wrap
+ggplot(titanic, aes(x=Age, fill=Survived)) + geom_histogram(binwidth = 5,color = 'black' ) + facet_wrap(Sex ~ Pclass) +theme_bw() + labs(y= 'Age', title = "Titanic Survival Rates")
+
